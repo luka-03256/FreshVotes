@@ -6,16 +6,19 @@ import javax.persistence.Entity;
 
 
 
-@Embeddable
 @Entity
+@Embeddable
 public class Vote {
 	// class fields static || non-static
 	
-	@EmbeddedId
+	// pk is a composite key that's reason why we use @EmbeddedId annotation
+	// it contains both IDs here as foreign key the user Id as well as a feature ID so those two
+	// combined are composite keys 
+	
 	private VoteId pk; // pk - stands for primary key
 	private Boolean upvote;
 	
-	
+	@EmbeddedId
 	public VoteId getPk() {
 		return pk;
 	}

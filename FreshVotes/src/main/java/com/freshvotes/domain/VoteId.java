@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 @Embeddable
 public class VoteId implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6202269445639364170L;
 	
 	// just many to one relationship 
 	private User user;

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 // implementation of POJO - plain old java object(design pattern)
 @Entity
-@Table(name="features")
+@Table(name="feature")
 public class Feature {
 	// class fields static || non-static
 	private Long id;
