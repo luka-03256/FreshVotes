@@ -1,10 +1,10 @@
-package com.freshvotes;
+package com.freshvotes.domain;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
-import com.freshvotes.domain.VoteId;
+
 
 @Embeddable
 @Entity
