@@ -12,6 +12,7 @@ public class DashboardController {
 		
 		// it will return html file called index.html
 		// root page of our application
+		
 		return "index";
 	}
 	
