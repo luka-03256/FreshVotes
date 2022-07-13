@@ -1,0 +1,6 @@
+		-- Handling http requests --
+	four basic http methods:
+	1) GET is the read 
+	2) POST is the create
+	3) PUT, PATCH is update  
+	4) DELETE is delete
