@@ -1,5 +1,6 @@
 package com.freshvotes.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ public class Comment {
 	private String text;
 	private CommentId pk; // pk - stands for public key
 	
-	
+	@Column(length=5000) // maximum legnth 5000 characters
 	public String getText() {
 		return text;
 	}
