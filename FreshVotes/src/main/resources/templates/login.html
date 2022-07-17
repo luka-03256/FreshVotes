@@ -5,6 +5,24 @@
 	<title>FreshVotes Login</title>
 	<meta charset="UFT-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		// document object in page hierarchy 
+		// at second level as child of object window
+		// jQuery uses selectors 
+		$(document).ready(function() {
+			$("#createAccount").click(function() {
+				// when we click on button with this 
+				// id, we want to redirected to page location /register
+				window.location.href="/register";
+			});
+		});
+	</script>
+
 </head>
 
 <body>
@@ -36,6 +54,7 @@
 			</p>
 			<div>
 				<button type="submit" class="btn">Log in</button>
+				<button type="button" class="btn" id="createAccount">Create Account</button>
 			</div>
 		</fieldset>
 	</form>
