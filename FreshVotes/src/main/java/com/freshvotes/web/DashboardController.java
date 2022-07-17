@@ -16,10 +16,8 @@ public class DashboardController {
 	//@RequestMapping(value="/", method=RequestMethod.GET)
 	@GetMapping("/")
 	public String rootView() {
-		
 		// it will return html file called index.html
 		// root page of our application
-		
 		return "index";
 	}
 	

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://thymeleaf.org">
-	<head>
-		<title>FreshVotes Login</title>
 
-	</head>
-	<body>
-		<h2>Register For An Account</h2>
-	</body>
+<head>
+	<title>FreshVotes Login</title>
+
+</head>
+
+<body>
+	<h2>Register For An Account</h2>
+
+
+
+	<form action="" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:vlaue="${_csrf.token}"/>
+		Name: <input type="text" th:field="${user.name}" /></br>
+		<!-- in user object we called associated username field to represent user email -->
+		Email Address: <input type="text" th:field="${user.username}" /></br>
+		Password: <input type="password" th:field="${user.password}" /></br>
+		Confirm Password: <input type="password" id="confirmPassword" /></br>
+		<!--on front-end we are going to compare confirm password with password
+			see if there is match, if result true allow submiting, else pop alert message-->
+		<button type="submit">Create Account</button>
+	</form>
+
+
+
+
+
+</body>
+
 </html>
