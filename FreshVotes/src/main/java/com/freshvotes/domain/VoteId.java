@@ -2,6 +2,7 @@ package com.freshvotes.domain;
 
 import java.io.Serializable;
 
+import javax.naming.Name;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
 
@@ -31,6 +32,35 @@ public class VoteId implements Serializable{
 	}
 	
 	
+	@Override
+	public boolean equals(Object obj) {
+		if(this != obj) {
+			return false;
+		}
+		if(obj == null) {
+			return false;
+		}
+		
+		if(!(obj instanceof VoteId)) {
+			return false;
+		}
+		
+		VoteId second = (VoteId) obj;
+		if(this.getUser() != second.getUser() || this.getFeature() != second.getFeature()) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 31 * hash + (int) serialVersionUID;
+		hash = 31 * hash + (user.getName() == null ? 0 : user.hashCode());
+		hash = 31 * hash + (user.getPassword() == null ? 0 : user.hashCode());
+		return hash;
+	}
 	
 	
 	

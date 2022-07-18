@@ -31,8 +31,8 @@ public class Authority implements GrantedAuthority {
 		this.authority = authority;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
