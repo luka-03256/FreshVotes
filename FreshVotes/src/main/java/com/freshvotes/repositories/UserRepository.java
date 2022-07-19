@@ -2,7 +2,6 @@ package com.freshvotes.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import com.freshvotes.domain.User;
 
 // spring data provides us specific lever of abstraction when it comes
