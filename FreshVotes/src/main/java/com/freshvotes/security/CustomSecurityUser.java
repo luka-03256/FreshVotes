@@ -18,11 +18,11 @@ public class CustomSecurityUser extends User implements UserDetails {
 
 	// parameterized constructor
 	public CustomSecurityUser(User user) {
-		this.setAuthorities(getAuthorities());
-		this.setId(getId());
-		this.setName(getUsername());
-		this.setPassword(getPassword());
-		this.setUsername(getUsername());
+		this.setAuthorities(user.getAuthorities());
+		this.setId(user.getId());
+		this.setName(user.getUsername());
+		this.setPassword(user.getPassword());
+		this.setUsername(user.getUsername());
 	}
 
 	@Override

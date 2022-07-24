@@ -1,5 +1,6 @@
 package com.freshvotes.service;
 
+
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -8,7 +9,7 @@ class UserDetailsServiceTest {
 	@Test
 	void generate_encrypted_password() {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String rawPassword = "password123";
+		String rawPassword = "password";
 		String encodedPassword = encoder.encode(rawPassword);
 
 		if (matches(rawPassword, encodedPassword)) {
@@ -20,6 +21,7 @@ class UserDetailsServiceTest {
 		}
 		
 		System.out.println(encodedPassword);
+		
 	}
 
 	private static boolean matches(String rawPassword, String encodedPassword) {
