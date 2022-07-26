@@ -34,7 +34,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// examine commented code down below some misconception might happened
 		// during process of working
-		// auth.userDetailsService(userDetailService).passwordEncoder(getPasswordEncoder());
+		auth.userDetailsService(userDetailService).passwordEncoder(getPasswordEncoder());
+		//userDetailsService(userDetailService).passwordEncoder(getPasswordEncoder());
 
 		/*
 		 * auth.inMemoryAuthentication() .passwordEncoder(getPasswordEncoder())
@@ -42,8 +43,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 * .password(getPasswordEncoder().encode("asdfasdf")) .roles("ADMIN");
 		 */
 
+		/*
 		auth.inMemoryAuthentication().passwordEncoder(getPasswordEncoder()).withUser("mtopkovic@mail.com")
 				.password(getPasswordEncoder().encode("password123")).roles("USER");
+		*/
 
 		// authentication
 

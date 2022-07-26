@@ -12,7 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import java.util.List;
 import com.freshvotes.domain.Product;
 import com.freshvotes.domain.User;
 import com.freshvotes.repositories.ProductRepository;
@@ -23,8 +23,16 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepo;
 
+	@GetMapping(value = "/products")
+	public String getProducts(@AuthenticationPrincipal User user,ModelMap model) {
+		List<Product> products = productRepo.findByUser(user);
+		model.put("products", products);
+		
+		return "products";
+	}
+
 	@GetMapping(value = "/product")
-	public String getProducts(ModelMap model) {
+	public String getProduct(ModelMap model) {
 		return "product";
 	}
 
