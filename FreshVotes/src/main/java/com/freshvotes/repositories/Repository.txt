@@ -1,0 +1,4 @@
+we use repositories when we want some product to save in database;
+because hibernate isn't linked with database, this operation won't be done by default
+implicitly
+it is our responsibility to handle such kind of tasks

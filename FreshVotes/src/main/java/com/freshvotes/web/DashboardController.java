@@ -1,34 +1,35 @@
 package com.freshvotes.web;
 
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-
-
+import com.freshvotes.domain.Product;
+import com.freshvotes.domain.User;
+import com.freshvotes.repositories.ProductRepository;
 
 @Controller
 public class DashboardController {
-	
+
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	
+	private ProductRepository productRepo;
+
 	// @RequestMapping annotation same as @GetMapping
-	//@RequestMapping(value="/", method=RequestMethod.GET)
+	// @RequestMapping(value="/", method=RequestMethod.GET)
 	@GetMapping("/")
 	public String rootView() {
 		// it will return html file called index.html
 		// root page of our application
 		return "index";
 	}
-	
-	
+
 	@GetMapping("/dashboard")
-	public String dashboard() {
+	public String dashboard(@AuthenticationPrincipal User user, ModelMap model) {
+		List<Product> products = productRepo.findByUser(user);
+		model.put("products", products);
 		return "dashboard";
 	}
-	
-	
+
 }

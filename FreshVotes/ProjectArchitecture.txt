@@ -1,0 +1,10 @@
+Typically web application consists of three so to speak main components
+	1 controller - which handles all of the requests sent when client tries to connect
+	(gain access) to our web application, also controller makes decision what to do (how to react)
+	on particular request
+	- controller send request off to the service which stands in between of business logic
+	2 service typically does the work ( business logic )
+	- service will fetch data from repository, database(do some work calculation, extraction)
+	 do something with that data and pass back
+	to controller which will eventually send it to view
+	3 view - html(hyper text markup language) of end user, what client is looking at

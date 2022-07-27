@@ -1,7 +1,6 @@
 package com.freshvotes.web;
 
 import java.io.IOException;
-
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import java.util.List;
 import com.freshvotes.domain.Product;
 import com.freshvotes.domain.User;
 import com.freshvotes.repositories.ProductRepository;
@@ -23,33 +21,25 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepo;
 
-	@GetMapping(value = "/products")
-	public String getProducts(@AuthenticationPrincipal User user,ModelMap model) {
-		List<Product> products = productRepo.findByUser(user);
-		model.put("products", products);
-		
-		return "products";
-	}
-
-	@GetMapping(value = "/product")
-	public String getProduct(ModelMap model) {
-		return "product";
-	}
+//	@GetMapping(value = "/product")
+//	public String getProduct(ModelMap model) {
+//		return "product";
+//	}
 
 	// {productId} -> open up the page with given productId and display information
 	// fetched from database
-	@GetMapping(value = "/product/{productId}")
+	@GetMapping("/products/{productId}")
 	public String getProduct(@PathVariable Long productId, ModelMap model, HttpServletResponse response)
 			throws IOException {
-		Optional<Product> productOpt = productRepo.findById(productId);
+		Optional<Product> productOpt = productRepo.findByIdWithUser(productId);
 
 		if (productOpt.isPresent()) {
 			Product product = productOpt.get();
 			model.put("product", product);
 
 		} else {
-			Product product = productOpt.get();
-			model.put("product", product);
+//			Product product = productOpt.get();
+//			model.put("product", product);
 
 			// if we don't find productOpt we explicitly set status
 			// 404 not found
@@ -60,14 +50,16 @@ public class ProductController {
 		return "product";
 	}
 
-	@PostMapping(value = "/product/{productId}")
+	@PostMapping(value = "/products/{productId}")
 	public String saveProduct(@PathVariable Long productId, Product product) {
 		System.out.println(product);
+
 		product = productRepo.save(product);
-		return "redirect:/product/" + product.getId();
+
+		return "redirect:/products/" + product.getId();
 	}
 
-	@PostMapping(value = "/product")
+	@PostMapping(value = "/products")
 	public String createProduct(@AuthenticationPrincipal User user) {
 		Product product = new Product();
 
@@ -77,7 +69,7 @@ public class ProductController {
 
 		// redirect us to page with current product id
 		// fetched from our database
-		return "redirect:/product/" + product.getId();
+		return "redirect:/products/" + product.getId();
 	}
 
 }
