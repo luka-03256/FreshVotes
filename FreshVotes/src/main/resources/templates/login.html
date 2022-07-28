@@ -24,9 +24,8 @@
 </head>
 
 <body>
-
+<div th:replace="fragments/header :: header"></div>
 	<div class="container">
-
 		<div class="card" style="margin-top: 1.5em;">
 			<div class="card-header">
 				<h2>Please Login</h2>
@@ -54,19 +53,19 @@
 							<input type="text" class="form-control" id="username" name="username" />
 						</div>
 					</div>
-					<div class="form-group row">
+					<div class="form-group row" style="margin-top: 2em;">
 						<label for="password"
 							class="col-12 col-sm-3 col-md-4 col-lg-3 col-xl-4 col-form-label">Password</label>
 						<div class="col-12 col-sm-9 col-md-8 col-lg-9 col-xl-8">
 							<input type="password" class="form-control" id="password" name="password" />
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" style="margin-top: 2em;">
 						<div class="col-6">
 							<button type="submit" class="btn btn-lg btn-primary">Log in</button>
 						</div>
 						<div class="col-6">
-							<button type="button" class="btn btn-lg btn-info float-right" id="createAccount">Create
+							<button type="button" class="btn btn-lg btn-secondary float-right" id="createAccount">Create
 								Account</button>
 						</div>
 					</div>

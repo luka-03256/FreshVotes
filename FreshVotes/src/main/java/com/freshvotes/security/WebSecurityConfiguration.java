@@ -63,19 +63,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// root of the web application is allowed to be seen by anyone only the
 		// index file is allowed to be seen
-		http
-			.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.antMatchers("/register").permitAll()
-				.antMatchers("/admin/**").hasRole("ADMIN")
-				.anyRequest().hasRole("USER").and()
-			.formLogin()
-				.loginPage("/login")
-				.defaultSuccessUrl("/dashboard")
-				.permitAll()
-				.and()
-			.logout().logoutUrl("/logout")
-				.permitAll();
+		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/register").permitAll()
+				.antMatchers("/images/**").permitAll().antMatchers("/admin/**").hasRole("ADMIN").anyRequest()
+				.hasRole("USER").and().formLogin().loginPage("/login").defaultSuccessUrl("/dashboard").permitAll().and()
+				.logout().logoutUrl("/logout").permitAll();
 
 	}
 

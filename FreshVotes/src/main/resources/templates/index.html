@@ -5,17 +5,17 @@
 	<title>FreshVotes HomePage</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<script th:replace="fragments/header :: headerElement" th:remove="tag"></script>
 
 	<script type="text/javascript">
-		
+
 		$(document).ready(function () {
 			$("#login").click(function () {
 				window.location.href = "/login";
 			});
-	});
-		
+		});
+
 
 
 	</script>
@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+	<div th:replace="fragments/header :: header"></div>
 	<div class="container">
 		<div class="row" style="margin-top: 2em;">
 			<div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">

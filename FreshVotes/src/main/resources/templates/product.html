@@ -5,14 +5,14 @@
 	<title>FreshVotes Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<script th:replace="fragments/header :: headerElement" > </script>
+
+	<script th:replace="fragments/header :: headerElement"> </script>
 
 </head>
 
 <body>
 
-
+	<div th:replace="fragments/header :: header"></div>
 	<div class="container" th:if="${product != null}">
 
 		<h1>Product</h1>
