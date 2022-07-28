@@ -2,11 +2,9 @@ package com.freshvotes.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
 import com.freshvotes.domain.Product;
 import java.util.List;
 import java.util.Optional;
-
 import com.freshvotes.domain.User;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
